@@ -8,7 +8,7 @@ body {
 }
 
 h1 {
-  font-weight: 150;
+  font-weight: 100;
 }
 h2 {
   font-weight: 100;
@@ -48,7 +48,8 @@ p {
 .units {
   font-size: 20px;
   position: relative;
-  top: -40px;
+  top: -35px;
+  left: -10px;
 }
 
 .weather {
