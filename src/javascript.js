@@ -40,6 +40,9 @@ function displayWeather(response) {
   );
   document.querySelector("#weatherDescription").innerHTML =
     response.data.weather[0].main;
+  document.querySelector("#windSpeed").innerHTML = Math.round(
+    response.data.wind.speed
+  );
   document.querySelector("#max").innerHTML = Math.round(
     response.data.main.temp_max
   );
