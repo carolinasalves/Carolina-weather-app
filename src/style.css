@@ -15,6 +15,12 @@ h2 {
   font-size: 70px;
 }
 
+h2 img {
+  margin-bottom: 10px;
+  height: 70px;
+  width: 70px;
+}
+
 p {
   margin: 0 auto;
 }
