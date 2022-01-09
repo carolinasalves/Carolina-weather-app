@@ -23,7 +23,6 @@ function formatDate(date) {
 }
 
 function displayWeather(response) {
-  console.log(response.data);
   document.querySelector("#current-city").innerHTML = response.data.name;
   document
     .querySelector("#icon")
@@ -49,6 +48,7 @@ function displayWeather(response) {
   document.querySelector("#min").innerHTML = Math.round(
     response.data.main.temp_min
   );
+  celsiusTemperature = response.data.main.temp;
 }
 
 function search(city) {
@@ -76,6 +76,25 @@ function getCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(displayPosition);
 }
 
+function displayFahrenheit(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheiTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheiTemperature);
+}
+
+function displayCelsius(event) {
+  event.preventDefault();
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
+
 let currentDate = document.querySelector("#date");
 let currentTime = new Date();
 currentDate.innerHTML = formatDate(currentTime);
@@ -85,3 +104,11 @@ form.addEventListener("submit", handleSearch);
 
 let currentLocationButton = document.querySelector("#current-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheit);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsius);
+
+search("Lisbon");
