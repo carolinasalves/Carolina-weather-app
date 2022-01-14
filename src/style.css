@@ -58,12 +58,6 @@ p {
   left: -10px;
 }
 
-.units .active {
-  color: #fff;
-  text-decoration: none;
-  cursor: default;
-}
-
 .wind {
   margin-bottom: 100px;
 }
