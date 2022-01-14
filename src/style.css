@@ -67,8 +67,12 @@ p {
 .wind {
   margin-bottom: 100px;
 }
-.row {
+.weather-forecast {
   font-size: 15px;
+}
+
+.weather-forecast-temperature-min {
+  opacity: 0.7;
 }
 
 .emoji {
