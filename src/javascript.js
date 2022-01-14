@@ -22,6 +22,28 @@ function formatDate(date) {
   return `${currentDay}, ${hours}:${minutes}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col">
+            <div class="weather-forecast-day">${day}</div>
+            <img src="" alt="" />
+            <span class="emoji">☀️</span>
+            <div class="weather-forecast-temperature">
+              <span class="weather-forecast-temperature-max">16º</span>
+              <span class="weather-forecast-temperature-min">8º</span>
+            </div>
+          </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function displayWeather(response) {
   document.querySelector("#current-city").innerHTML = response.data.name;
   document
@@ -112,3 +134,4 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsius);
 
 search("Lisbon");
+displayForecast();
